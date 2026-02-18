@@ -1,0 +1,113 @@
+<!-- TOP CONTACT BAR -->
+<div class="fixed top-0 left-0 w-full bg-blue-600 text-white text-sm z-50">
+  <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+
+    <!-- Email Left -->
+    <div>
+      📧 info@clinic.com
+    </div>
+
+    <!-- Phone Right -->
+    <div>
+      📞 +1 234 567 890
+    </div>
+
+  </div>
+</div>
+
+<!-- MAIN NAVBAR -->
+<header class="fixed top-8 left-0 w-full bg-white shadow-md z-40">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a routerLink="/" class="text-2xl font-bold text-blue-600">
+        Shevansh Dental Clinic
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-8 items-center">
+
+        <a routerLink="/"
+           routerLinkActive="text-blue-600 font-semibold"
+           [routerLinkActiveOptions]="{ exact: true }"
+           class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">
+          Home
+        </a>
+
+        <a routerLink="/about"
+           routerLinkActive="text-blue-600 font-semibold"
+           class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">
+          About
+        </a>
+
+        <a routerLink="/services"
+           routerLinkActive="text-blue-600 font-semibold"
+           class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">
+          Services
+        </a>
+
+        <a routerLink="/contact"
+           routerLinkActive="text-blue-600 font-semibold"
+           class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">
+          Contact
+        </a>
+
+        <a (click)="openAppointment()"
+           class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition duration-300">
+          Book Appointment
+        </a>
+      </nav>
+
+      <!-- Mobile Button -->
+      <button class="md:hidden"
+              (click)="toggleMenu()">
+        ☰
+      </button>
+
+    </div>
+  </div>
+
+
+ <!-- Mobile Menu -->
+<div *ngIf="isMenuOpen"
+     class="fixed top-24 left-0 w-full bg-white shadow-lg md:hidden z-50 transition-all duration-300">
+
+  <div class="px-6 py-6 space-y-4">
+
+    <a routerLink="/" (click)="closeMenu()"
+       routerLinkActive="text-blue-600 font-semibold"
+       [routerLinkActiveOptions]="{ exact: true }"
+       class="block text-gray-700 hover:text-blue-600 text-lg">
+      Home
+    </a>
+
+    <a routerLink="/about" (click)="closeMenu()"
+       routerLinkActive="text-blue-600 font-semibold"
+       class="block text-gray-700 hover:text-blue-600 text-lg">
+      About
+    </a>
+
+    <a routerLink="/services" (click)="closeMenu()"
+       routerLinkActive="text-blue-600 font-semibold"
+       class="block text-gray-700 hover:text-blue-600 text-lg">
+      Services
+    </a>
+
+    <a routerLink="/contact" (click)="closeMenu()"
+       routerLinkActive="text-blue-600 font-semibold"
+       class="block text-gray-700 hover:text-blue-600 text-lg">
+      Contact Us
+    </a>
+
+    <a (click)="openAppointment()"
+       class="block bg-blue-600 text-white text-center py-3 rounded-full hover:bg-blue-700">
+      Book Appointment
+    </a>
+  </div>
+</div>
+  
+
+
+<app-appointment *ngIf="isAppointmentOpen" (close)="closeAppointment()"> </app-appointment>
+</header>

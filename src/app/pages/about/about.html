@@ -1,0 +1,92 @@
+<!-- Header Section -->
+<section id="about-header"
+         class="py-16 text-center bg-fixed bg-cover bg-center bg-no-repeat relative"
+         style="background-color: rgb(176, 176, 176)">
+  <!-- Optional overlay for readability -->
+  <div class="absolute inset-0 bg-white/70"></div>
+
+  <div class="relative container mx-auto px-6 space-y-4">
+    <h1 class="text-4xl md:text-5xl font-bold text-blue-900">About Us</h1>
+    <p class="text-lg text-black">At Shivansh Dental Clinic, we believe every smile tells a story.</p>
+  
+  </div>
+</section>
+
+
+<!-- Stats Section -->
+<section id="about-stats" class="py-5 bg-white">
+  <div class="container mx-auto px-6 grid gap-8 sm:grid-cols-3 text-center">
+    <div>
+      <h3 class="text-3xl font-bold text-blue-600">{{ patientsTreated }}+</h3>
+      <p class="text-gray-600">Patients Treated</p>
+    </div>
+    <div>
+      <h3 class="text-3xl font-bold text-blue-600">{{ yearsExperience }}+</h3>
+      <p class="text-gray-600">Years of Experience</p>
+    </div>
+    <div>
+      <h3 class="text-3xl font-bold text-blue-600">{{ dentalExperts }}</h3>
+      <p class="text-gray-600">Dedicated Expert</p>
+    </div>
+  </div>
+</section>
+
+<!-- Doctor at Work Image -->
+
+
+<!-- Doctor Profile -->
+<!-- Doctor Profile -->
+<section id="doctor-profile" class="py-5 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <img [src]="doctor.profileImage" [alt]="doctor.name"
+         class="w-40 h-40 mx-auto rounded-full border-8 border-white shadow-xl object-cover mb-6">
+    <h2 class="text-2xl font-bold text-blue-900">{{ doctor.name }}</h2>
+    <p class="text-gray-600">{{ doctor.designation }}</p>
+    <p class="mt-4 max-w-xl mx-auto text-gray-700">
+      {{ doctor.description }}
+    </p>
+  </div>
+</section>
+
+
+<!-- Core Values -->
+<section id="values" class="py-16 bg-gray-100">
+  <div class="container mx-auto px-6 text-center space-y-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-blue-900">Our Core Values</h2>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div *ngFor="let value of values" class="p-6 bg-white rounded-xl shadow hover:scale-105 transition">
+        <img [src]="value.icon" [alt]="value.title"
+             class="w-16 h-16 mx-auto mb-4 object-contain">
+        <h4 class="text-xl font-semibold text-blue-900 mb-2">{{ value.title }}</h4>
+        <p class="text-gray-600">{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Accreditations & Certifications -->
+<section id="accreditations" class="py-16 bg-white overflow-hidden">
+  <div class="container mx-auto px-6 text-center space-y-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-blue-900">Accreditations & Certifications</h2>
+
+    <!-- Continuous marquee wrapper -->
+    <div class="cert-marquee-wrapper">
+      <div class="cert-marquee">
+        <!-- First set of logos -->
+        <div *ngFor="let cert of certifications" class="flex flex-col items-center mx-8">
+          <img [src]="cert.logo" [alt]="cert.title"
+               class="w-20 h-20 object-contain mb-2">
+          <p class="text-gray-600 text-sm">{{ cert.title }}</p>
+        </div>
+        <!-- Duplicate set of logos for seamless loop -->
+        <div *ngFor="let cert of certifications" class="flex flex-col items-center mx-8">
+          <img [src]="cert.logo" [alt]="cert.title"
+               class="w-20 h-20 object-contain mb-2">
+          <p class="text-gray-600 text-sm">{{ cert.title }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

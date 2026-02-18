@@ -1,0 +1,100 @@
+    <!-- Hero Section -->
+    <section id="contact-hero"
+            class="min-h-[30vh] flex items-center justify-center text-center bg-gray-200 relative">
+    <div class="container mx-auto px-6 max-w-2xl space-y-4 animate-fadeIn">
+        <h1 class="text-4xl md:text-5xl font-bold text-blue-900">Contact Us</h1>
+        <p class="text-base md:text-lg text-gray-700">
+        We’re here to help you with appointments, queries, and dental care guidance.
+        </p>
+    </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="py-16 bg-white">
+    <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
+        <!-- Address -->
+        <div class="space-y-3 animate-slideUp">
+        <i class="fas fa-map-marker-alt text-green-600 text-4xl"></i>
+        <h3 class="text-xl font-semibold text-blue-900">Our Address</h3>
+        <p class="text-gray-700">123 Shivansh Dental Clinic, Dehradun, Uttarakhand</p>
+        </div>
+        <!-- Email -->
+        <div class="space-y-3 animate-slideUp">
+        <i class="fas fa-envelope text-green-600 text-4xl"></i>
+        <h3 class="text-xl font-semibold text-blue-900">Email Us</h3>
+        <p class="text-gray-700">info@shivanshdental.com</p>
+        </div>
+        <!-- Hours -->
+        <div class="space-y-3 animate-slideUp">
+        <i class="fas fa-clock text-green-600 text-4xl"></i>
+        <h3 class="text-xl font-semibold text-blue-900">Hours of Operation</h3>
+        <p class="text-gray-700">Mon - Sat: 9:00 AM - 7:00 PM<br>Sunday: Closed</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Contact Form Section -->
+  
+<section class="py-10 relative bg-gradient-to-r from-blue-50 via-white to-green-50">
+  <div class="container mx-auto px-6 max-w-3xl relative z-10">
+    <h2 class="text-3xl font-bold text-blue-900 text-center mb-8">Send Us a Message</h2>
+
+    <form (ngSubmit)="sendEmail()" class="bg-white shadow-xl rounded-xl p-8 space-y-6">
+      <!-- Error Alert -->
+      <div *ngIf="showError" class="flex items-center justify-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+        <span class="font-semibold">⚠️ {{ errorMessage }}</span>
+      </div>
+
+      <!-- Success Alert -->
+      <div *ngIf="isSuccess" class="flex items-center justify-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
+        <span class="font-semibold">✅ Form submitted successfully! We will reach out to you soon.</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <input type="text" [(ngModel)]="formData.name" name="name" placeholder="Your Name"
+               class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition" required>
+        <input type="email" [(ngModel)]="formData.email" name="email" placeholder="Your Email"
+               class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition" required>
+      </div>
+
+      <input type="text" [(ngModel)]="formData.subject" name="subject" placeholder="Subject"
+             class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition" required>
+
+      <textarea [(ngModel)]="formData.message" name="message" rows="5" placeholder="Message"
+                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition" required></textarea>
+
+      <button type="submit"
+              class="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3 rounded-lg font-semibold shadow-lg hover:from-green-700 hover:to-green-800 transition">
+        Send Message
+      </button>
+    </form>
+
+    <!-- Description below form -->
+    <div class="mt-8 text-center space-y-3 animate-fadeIn">
+      <p class="text-gray-700 text-lg">
+        Have a question or want to learn more? Reach out to us and our team will get back to you shortly.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Google Map Section -->
+    <!-- Google Map Section -->
+<section class="py-9 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-blue-900 text-center mb-8">Find Us Here</h2>
+    <div class="w-full h-96 rounded-lg overflow-hidden shadow-lg relative">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55105.51073169175!2d77.97622276836167!3d30.319832013071053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092b8f3d7a08b1%3A0x8bfd9e8833d76d80!2sSHIVANSH%20DENTAL%20CLINIC!5e0!3m2!1sen!2sin!4v1771050841070!5m2!1sen!2sin"
+        class="w-full h-full"
+        style="border:0;"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+

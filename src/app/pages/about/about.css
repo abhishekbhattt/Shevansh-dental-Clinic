@@ -1,0 +1,20 @@
+.cert-marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.cert-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.cert-marquee > div {
+  flex: 0 0 auto;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }   /* start off-screen to the right */
+  100% { transform: translateX(-100%); }  /* move fully off-screen to the left */
+}
