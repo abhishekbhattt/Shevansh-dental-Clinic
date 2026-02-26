@@ -47,14 +47,14 @@ submitForm() {
   }
 
   const message = `
-📅 *New Appointment Booking Request*
+📌 *Appointment Booking Request*
 
-👤 Name: ${name}
-🎂 Age: ${age}
-🏠 Address: ${address}
-📆 Date: ${date}
-⏰ Time: ${time}
-🦷 Problem: ${problem ? problem : "Not Mentioned"}
+👤 Full Name: ${name}
+📄 Age: ${age}
+🏢 Address: ${address}
+📆 Preferred Date: ${date}
+⏰ Preferred Time: ${time}
+🩺 Concern: ${problem ? problem : "Not Mentioned"}
 
 ──────────────────────────────
 🏥 *Shivansh Dental Clinic*
@@ -63,7 +63,8 @@ submitForm() {
 📞 +91-9027844665
 ──────────────────────────────
 
-⚠️ *Confidentiality Notice*: This message and any information contained herein are intended solely for the recipient (Shivansh Dental Clinic). Unauthorized use, disclosure, or distribution is prohibited.
+⚠️ *Confidentiality Notice*: This message contains information intended only for Shivansh Dental Clinic. Any unauthorized review, use, disclosure, or distribution is prohibited.  
+© Shivansh Dental Clinic
 `;
 
   const phoneNumber = "9027844665"; // clinic WhatsApp number
@@ -77,5 +78,6 @@ submitForm() {
     window.location.href = whatsappURL;
   }, 4000);
 }
+
 
 }
