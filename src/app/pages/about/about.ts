@@ -14,7 +14,7 @@ export class About implements OnInit {
   clinicName = 'Shivansh Dental Clinic';
   clinicLogo = 'assets/images/about-hero.png';
 
-  patientsTreated = 5000;
+  patientsTreated = 500;
   yearsExperience = 15;
   dentalExperts = 1;
 
