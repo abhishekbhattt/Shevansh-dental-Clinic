@@ -27,7 +27,7 @@ export class Contact {
 sendEmail() {
   const { name, email, subject, message } = this.formData;
 
-  // ✅ Validation
+  // Validation
   if (!name.trim() || !email.trim() || !subject.trim() || !message.trim()) {
     this.errorMessage = 'All fields are required!';
     this.showError = true;
@@ -37,47 +37,26 @@ sendEmail() {
     return;
   }
 
-  // ✅ Show green success alert FIRST
+  const ownerEmail = "abryon.edu@gmail.com";
+
+  const emailSubject = encodeURIComponent(subject);
+
+  const emailBody = encodeURIComponent(
+    `Name: ${name}\n` +
+    `Email: ${email}\n\n` +
+    `Message:\n${message}`
+  );
+
+  const mailtoLink = `mailto:${ownerEmail}?subject=${emailSubject}&body=${emailBody}`;
+
+  window.location.href = mailtoLink;
+
+  // Optional success message
   this.isSuccess = true;
-  this.showError = false;
 
-  // ✅ Delay email sending by 3 seconds
   setTimeout(() => {
-
-    emailjs.send(
-      'service_nlh5qdr',
-      'template_azye94q',
-      {
-        from_name: name,
-        from_email: email,
-        subject: subject,
-        message: message,
-        author: 'Shevansh Dental Clinic, Dehradun'
-      },
-      'EwNyxIgCTrfBfawTW'
-    ).then(
-      (result: EmailJSResponseStatus) => {
-        console.log('SUCCESS!', result);
-
-        this.ngZone.run(() => {
-          this.formData = { name: '', email: '', subject: '', message: '' };
-
-          // Hide green alert after 5 seconds
-          setTimeout(() => (this.isSuccess = false), 5000);
-        });
-      },
-      (error) => {
-        console.error('FAILED...', error);
-
-        this.ngZone.run(() => {
-          this.isSuccess = false;
-          this.errorMessage = 'Failed to send message. Please try again.';
-          this.showError = true;
-          setTimeout(() => (this.showError = false), 5000);
-        });
-      }
-    );
-
+    this.isSuccess = false;
+    this.formData = { name: '', email: '', subject: '', message: '' };
   }, 3000);
 }
 
