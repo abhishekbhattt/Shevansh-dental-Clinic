@@ -20,7 +20,7 @@ export class Contact {
   sendEmail() {
     const { name, email, subject, message } = this.formData;
 
-    const ownerEmail = "info@shivanshdental.com"; // doctor’s email
+    const ownerEmail = "abryon.edu@gmail.com"; // doctor’s email
 
     // Professional preload text with emojis
     const preloadText =
