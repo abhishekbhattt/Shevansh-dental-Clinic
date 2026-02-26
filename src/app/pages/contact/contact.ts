@@ -1,5 +1,4 @@
-import { Component, NgZone } from '@angular/core';
-import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -11,8 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./contact.css']
 })
 export class Contact {
-  constructor(private ngZone: NgZone) {}
-
   formData = {
     name: '',
     email: '',
@@ -20,44 +17,39 @@ export class Contact {
     message: ''
   };
 
-  showError = false;
-  errorMessage = '';
-  isSuccess = false;
+  sendEmail() {
+    const { name, email, subject, message } = this.formData;
 
-sendEmail() {
-  const { name, email, subject, message } = this.formData;
+    const ownerEmail = "info@shivanshdental.com"; // doctor’s email
 
-  // Validation
-  if (!name.trim() || !email.trim() || !subject.trim() || !message.trim()) {
-    this.errorMessage = 'All fields are required!';
-    this.showError = true;
-    this.isSuccess = false;
+    // Professional preload text with emojis
+    const preloadText =
+      "📩 Shivansh Dental Clinic – Contact Form Submission\n\n" +
+      "Dear Dr. Shivansh Dental Team,\n\n" +
+      "You have received a new inquiry from your website:\n\n";
 
-    setTimeout(() => (this.showError = false), 4000);
-    return;
+    const footerText =
+      "\n\n──────────────────────────────\n" +
+      "🏥 Shivansh Dental Clinic\n" +
+      "📍 Dehradun, Uttarakhand\n" +
+      "📧 info@shivanshdental.com\n" +
+      "📞 +91-XXXXXXXXXX\n" +
+      "──────────────────────────────";
+
+    // Structured subject line
+    const emailSubject = encodeURIComponent(`🦷 Website Inquiry – ${subject}`);
+
+    // Structured body with preload + client details + footer
+    const emailBody = encodeURIComponent(
+      preloadText +
+      `👤 Name: ${name}\n` +
+      `📧 Email: ${email}\n\n` +
+      `💬 Message:\n${message}` +
+      footerText
+    );
+
+    const mailtoLink = `mailto:${ownerEmail}?subject=${emailSubject}&body=${emailBody}`;
+
+    window.location.href = mailtoLink;
   }
-
-  const ownerEmail = "abryon.edu@gmail.com";
-
-  const emailSubject = encodeURIComponent(subject);
-
-  const emailBody = encodeURIComponent(
-    `Name: ${name}\n` +
-    `Email: ${email}\n\n` +
-    `Message:\n${message}`
-  );
-
-  const mailtoLink = `mailto:${ownerEmail}?subject=${emailSubject}&body=${emailBody}`;
-
-  window.location.href = mailtoLink;
-
-  // Optional success message
-  this.isSuccess = true;
-
-  setTimeout(() => {
-    this.isSuccess = false;
-    this.formData = { name: '', email: '', subject: '', message: '' };
-  }, 3000);
-}
-
 }
