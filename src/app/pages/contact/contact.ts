@@ -24,10 +24,7 @@ export class Contact {
 
     // Professional preload text with emojis
     const preloadText =
-      "📩 Shivansh Dental Clinic – Contact Form Submission\n\n" +
-      "Dear Dr. Shivansh Dental Team,\n\n" +
-      "You have received a new inquiry from your website:\n\n";
-
+      "📩 Shivansh Dental Clinic – Contact Form Submission\n\n";
     const footerText =
       "\n\n──────────────────────────────\n" +
       "🏥 Shivansh Dental Clinic\n" +
